@@ -6,8 +6,10 @@ This repository is dedicated to providing comprehensive training materials and r
 
 ## Table of Content
 
-- [Exercises]
-  - [1. Customizing an existing Spartacus Component](./exercises/01-customizing-an-existing-spartacus-component)
+- [Setup the Environment](#setup-the-environment)
+  - [Building Spartacus Libraries](./spartacus-libraries.md)
+- Exercises
+  - [1. Customizing an existing Spartacus Component](./exercises/01-customizing-an-existing-spartacus-component.md)
 
 ## Setup the Environment
 
