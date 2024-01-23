@@ -16,7 +16,7 @@ ng generate component my-mini-cart
 
 The next structure will be generated into the 'app' foler:
 
-<img src="../media/1-1.png" width="100px" /> //TODO style
+<img src="../../media/exercice-1/1-1.png" width="100px" /> //TODO style
 
 In order to override the already existing Minicart component we will add the following lines into the new component module:
 
@@ -67,7 +67,7 @@ import { MyMiniCartModule } from "./my-mini-cart/my-mini-cart.module";
 
 With these changes you can see that the MiniCart has disappeared and now the default message that Angular CLI produces on newly generated components is displayed. This means that MiniCartComponent has been successfully mapped to MyMiniCartComponent.
 
-<img src="../media/1-2.png" width="100px" /> //TODO style
+<img src="../../media/exercice-1/1-2.png" width="100px" /> //TODO style
 
 We want to introduce some minor changes to the component so the idea is to keep the component previous behaviour. In order to do this we will inherit from the MiniCartComponent:
 
@@ -102,7 +102,7 @@ import { IconModule } from '@spartacus/storefront';
     ...
 ```
 
-<img src="../media/1-3.png" width="100px" /> //TODO style
+<img src="../../media/exercice-1/1-3.png" width="100px" /> //TODO style
 
 Now we will introduce our customizations. We will change the color in the component .sass file and put some extra text in the html:
 
@@ -121,7 +121,7 @@ a {
 
 The final product will look like this:
 
-<img src="../media/1-4.png" width="100px" /> //TODO style
+<img src="../../media/exercice-1/1-4.png" width="100px" /> //TODO style
 
 
 Congratulations! You have succesfully modified your first component in Spartacus! You can keep learning with the next exercise. (TODO-> Add hyperlink)
