@@ -42,10 +42,10 @@ output:
         <img src="../media/readme/5.png" width="600px" style="display:block; margin:auto;"/> 
       </p>
 
-      > [!IMPORTANT] 
-      > - Composable storefront does not support B2C and B2B storefronts running together in a single storefront application.
-      > - If you select a feature that is for B2B storefronts, the schematics automatically add any required B2B configurations if they are missing. If you install any of the following features, your composable storefront will automatically become a B2B storefront:
-      >   - Organization - Administration
-      >   - Organization - Order Approval
-      >   - Product - Bulk Pricing
-      >   - Product Configuration - CPQ Configurator"
+> [!IMPORTANT] 
+> - Composable storefront does not support B2C and B2B storefronts running together in a single storefront application.
+> - If you select a feature that is for B2B storefronts, the schematics automatically add any required B2B configurations if they are missing. If you install any of the following features, your composable storefront will automatically become a B2B storefront:
+>   - Organization - Administration
+>   - Organization - Order Approval
+>   - Product - Bulk Pricing
+>   - Product Configuration - CPQ Configurator"
