@@ -39,10 +39,12 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 ;;Section2CSlot-Homepage; Content for test Section 1 Slot;true;componentATest
 ```
 
->[!IMPORTANT] You need to sync the staging page to publish the online version.
+> [!IMPORTANT]  
+> You need to sync the staging page to publish the online version.
 
 
->[!TIP] For more information on how to create components in hybris with impex, please refer to this [guide](http://javainsimpleway.com/how-to-add-new-custom-cms-component-type-to-a-page-in-hybris/)
+> [!TIP]
+> For more information on how to create components in hybris with impex, please refer to this [guide](http://javainsimpleway.com/how-to-add-new-custom-cms-component-type-to-a-page-in-hybris/)
 
 ## 2. Component Creation in Spartacus
 
