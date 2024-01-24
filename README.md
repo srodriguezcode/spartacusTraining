@@ -92,6 +92,6 @@ For this training it's necessary to have an Hybris backend running to support ou
 In this training, you will complete some exercises to gain practical knowledge of Spartacus. Each exercise has its own guide to follow, and you can find the resolved solutions in different branches of this repository. If you encounter difficulties, feel free to compare your code with the provided solution, but remember that if you use different versions, the code might not work as expected.
 
 1. [Customizing an existing Spartacus Component](./resources/docs/exercises/01-customizing-an-existing-spartacus-component.md)
-2. TODO
+2. [Creating a new component](./resources/docs/exercises/02-creating-a-new-component.md)
 3. TODO
 4. TODO
