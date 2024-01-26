@@ -1,6 +1,7 @@
-# Creating a new component
+# 2. Creating a new component
+
 ## 1. Component Creation in Hybris:
-Generate a new component type in Hybris, adding it to the `-items.xml` a.g `spartacussampledata-beans.xml`.
+Generate a new component type in Hybris, and add it to the `-items.xml` file, e.g., `spartacussampledata-items.xml`.
 
 ```xml
         <itemtype code="ComponentAComponent" extends="SimpleCMSComponent"
