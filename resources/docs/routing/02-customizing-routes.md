@@ -96,7 +96,7 @@ http://localhost:4200/electronics-spa/en/USD/electronics/cameras/300938/Photosma
 ...
 ```
 
-> [!FAIL] 
+> [!CAUTION] 
 > Now if you go and click in the product again the URL will not works because manufacturer is not provided when it's not need it
 
 ### Step 7. To Ensure the *Manufacturer* Takes Effect, Customize `OccConfig`
