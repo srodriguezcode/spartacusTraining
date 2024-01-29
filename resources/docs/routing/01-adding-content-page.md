@@ -41,7 +41,7 @@ ng g c static-page
 ### Step 2. Configure a Route for This New Static Page 
 
 > [!NOTE]
-> It's a good practice to organize configurations in separate modules)
+> It's a good practice to organize configurations in separate modules
 
 ```bash
 ng generate module custom-routing
@@ -249,5 +249,5 @@ export class ContactComponent {
 http://localhost:4200/electronics-spa/en/USD/contact
 ```
 
-> [!Example of browser ]
+Browser Example: 
 <img src="../../media/routing/content-page-extended.png" />

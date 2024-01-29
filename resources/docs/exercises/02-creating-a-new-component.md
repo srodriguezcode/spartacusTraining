@@ -2,7 +2,7 @@
 
 ## 1. Component Creation in Hybris
 
-Generate a new component type in Hybris, and add it to the `-items.xml` file, e.g., `spartacussampledata-items.xml`.
+Generate a new component type in Hybris and add it to the `-items.xml` file (e.g., spartacussampledata-items.xml).
 
 ```xml
 ...
@@ -43,7 +43,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 ```
 
 > [!IMPORTANT]  
-> You need to sync the staging page to publish the online version.
+> You need to sync the *staging page* to publish the online version.
 
 
 > [!TIP]

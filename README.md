@@ -44,7 +44,7 @@ This repository is dedicated to providing comprehensive training materials and r
 
 - **Spartacus libraries**: 6.5.0 (We will build them during the setup)
 
-### Hybris environment setup guide
+### Hybris Environment Setup Guide
 
 For this training it's necessary to have an Hybris backend running to support our Spartacus frontend. For the sake of simplicity you can find an already prepared project in the '*develop*' branch. We will setup that one first.
 
@@ -53,7 +53,7 @@ For this training it's necessary to have an Hybris backend running to support ou
 3. Open your command prompt in the root folder and execute the `./setup_environment.sh` script. This will complete the setup for you. The process will take some time, so you can start building your Angular environment.
 4. Once finished you can check if it's working properly accesing `http://localhost:9002`.
 
-### Angular environment setup guide
+### Angular Environment Setup Guide
 
 1. Open a new command prompt in the root of the project and create an Angular Application using the next command:
 
@@ -92,7 +92,7 @@ For this training it's necessary to have an Hybris backend running to support ou
 })
 ```
 
-5. Start your Angular frontend Application using `npm start`. You can check if it is working properly accesing `http://localhost:4200/electronics-spa/en/USD/`. Make sure your hybris backend application is running on the same time.
+5. Start your Angular frontend Application using `npm start`. You can check if it is working properly accesing `http://localhost:4200/electronics-spa/en/USD/`. Make sure your hybris backend application is running at the same time.
 
 ## Exercises
 

@@ -27,7 +27,7 @@
 > Don't forget the "**/**" at start of the url
 > Use the correct relative route. For example, `/electronics-spa/en/USD/electronics/cameras/Digital%2520Compacts%252FHP/300938/HP/photosmart-e317-digital-camera`. Avoid including the base site, language, and currency in the path.
 
-### Step 2. Add *RouterModule* to Your *AppModule*
+### Step 2. Add `RouterModule` to Your `AppModule`
 
 ```ts
 ...
@@ -155,7 +155,7 @@ goToRandomProduct(): void {
 
 If we do this and go to the contact content page and open the terminal, when we click the button, we will see a lot of rows. This is because we are subscribing immediately to the search results before the results are actually available.
 
-<img src="../../media/routing/product-search-service-subscription.png />
+<img src="../../media/routing/product-search-service-subscription.png" alt="Products in browser console" />
 
 Since we only want products, we need to use an *RxJS operator*.
 

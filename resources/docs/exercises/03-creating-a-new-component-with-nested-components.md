@@ -39,7 +39,7 @@ Generate a new component type in Hybris, and add it to the `-items.xml` file, e.
 
 In this case, your component has three properties related to child components: a collections of `SimpleResponsiveBannerComponents` and two `SimpleResponsiveBannerComponents`. This way, you'll be able to see the two ways of handling child components.
 
-Take your time to instantiate the component in your application and add it to a page yourself.
+Take your time to instantiate and add the component to a page in your application.
 
 However, you can use the following impex:
 
@@ -66,13 +66,13 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 
 ## 2. Component Creation in Spartacus
 
-You will need to create your component in Spartacus with its respective module.
+You will need to create your component in Spartacus along with its respective module.
 
 ```sh
 ng g m component-b && ng g c component-b
 ```
 
-Now link your Spartacus component to the CMS component-b. To do this, in the `component-b.module.ts` file, you will link it in the imports section.
+Now link your Spartacus component to the CMS component-b. To do this, in the `component-b.module.ts` file, add it to the imports section.
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -100,11 +100,11 @@ export class ComponentBModule {}
 ```
 
 > [!IMPORTANT]  
-> Notice that you need to import the PageComponentModule because it is necessary to use `[cxComponentWrapper]` in later steps.
+> Notice that you need to import the `PageComponentModule` because it is necessary to use `[cxComponentWrapper]` in later steps.
 
 The next thing you need to do is import the new component module (in this case, we use the `app.module.ts`, but it could be another module loaded in the application, depending on the structure of your project).
 
-Next, import the new component module with lazy loading. In the `cmsComponents` section of this configuration, specify which components will trigger the lazy loading of the module.
+Next, import the new component module with lazy loading. In the `cmsComponents` section of this configuration, specify which components will trigger the *lazy loading* of the module.
 
 ```ts
 import { HttpClientModule } from '@angular/common/http';
@@ -254,9 +254,9 @@ In the template, you'll only need to use one of Spartacus's Out of the Box direc
 
 You will have to convert this list of IDs into renderable components. There are several approaches to resolve this. In this case, you will create a new property in your component's controller: transforming the Observable `data$` into an Observable of a list of `ContentSlotComponentData`.
 
-Using the split method, you convert the string with the IDs into a list of IDs, and use the getComponentData method of the Spartacus CmsService to convert it into a list of Observables.
+Using the split method, you convert the string with the IDs into a list of IDs, and use the getComponentData method of the Spartacus `CmsService` to convert it into a list of Observables.
 
-Use the following RxJs operators:
+Use the following *RxJs operators*:
 - `switchMap`: transforms the Observable into another Observable with the data that it receives from the first one.
 - `combineLatest`: transforms a list of Observables into the Observable of a list.
 - `map`: transforms the results of an Observable
@@ -322,4 +322,4 @@ The final template will look like this:
 
 Result:
 
-<img src="../../media/exercise-3/3-2.png" alt="Browser Network Console"/>
+<img src="../../media/exercise-3/3-3.png" alt="Browser Network Console"/>

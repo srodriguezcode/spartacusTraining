@@ -146,4 +146,4 @@ convert(source: Occ.Product, target?: TrProduct | undefined): TrProduct {
 Do you think that we need another normalizer for manufacturer? If you think so explain why and let's try it.
 
 > [!IMPORTANT]
-> Remember to Add fallback aliases when some parameters are unavailable
+> Remember to add fallback aliases when some parameters are unavailable
