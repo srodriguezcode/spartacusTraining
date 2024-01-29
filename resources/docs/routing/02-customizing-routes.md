@@ -29,7 +29,7 @@ const STATIC_ROUTES: Routes = [
 		data:{ pageLabel: 'cart' }
 	},
   {
-    path: 'alias/cns',
+    path: 'alias/tr',
     component: PageLayoutComponent,
     data: { pageLabel: '/faq' },
     canActivate: [CmsPageGuard]
