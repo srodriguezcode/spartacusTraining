@@ -1,25 +1,27 @@
-# 2. Creating a new component
+# 2. Creating a New Component
 
-## 1. Component Creation in Hybris:
+## 1. Component Creation in Hybris
+
 Generate a new component type in Hybris, and add it to the `-items.xml` file, e.g., `spartacussampledata-items.xml`.
 
 ```xml
-        <itemtype code="ComponentAComponent" extends="SimpleCMSComponent"
-                  jaloclass="de.hybris.platform.spartacussampledata.jalo.ComponentAComponent">
-            <attributes>
-                <attribute qualifier="title" type="localized:java.lang.String">
-                    <persistence type="property"/>
-                </attribute>
-                <attribute qualifier="text" type="localized:java.lang.String">
-                    <persistence type="property">
-                        <columntype>
-                            <value>HYBRIS.LONG_STRING</value>
-                        </columntype>
-                    </persistence>
-                </attribute>
-            </attributes>
-        </itemtype>
-    </itemtypes>
+...
+<itemtype code="ComponentAComponent" extends="SimpleCMSComponent"
+          jaloclass="de.hybris.platform.spartacussampledata.jalo.ComponentAComponent">
+    <attributes>
+        <attribute qualifier="title" type="localized:java.lang.String">
+            <persistence type="property"/>
+        </attribute>
+        <attribute qualifier="text" type="localized:java.lang.String">
+            <persistence type="property">
+                <columntype>
+                    <value>HYBRIS.LONG_STRING</value>
+                </columntype>
+            </persistence>
+        </attribute>
+    </attributes>
+</itemtype>
+...
 ```
 
 You must add the new component to a group and a page. You can also do it in the impex file.
@@ -52,8 +54,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 Now that the component is inside the `Section2CSlot-Homepage`, it's not visible on the homepage. Why?. Because Spartacus doesn't know the component's appearance or behavior. You need to create the component in Spartacus. Use these commands:
 
 ```sh
-ng g m component-a
-ng g c component-a
+ng g m component-a && ng g c component-a
 ```
 
 In the `component-a.module.ts` file, you will have to link the Spartacus component to the CMS component. Add the component to Declarations and then map it to the CMS component in imports.
@@ -82,9 +83,9 @@ import { CmsConfig, ConfigModule } from '@spartacus/core';
 export class ComponentAModule { }
 ```
 
-You must import your custom module in your app. You can do this in two ways, either by directly adding it to the `Imports` section of `app.module` or by using `lazy loading`. 
+You must import your custom module in your app. You can do this in two ways, either by directly adding it to the *Imports* section of `app.module` or by using *lazy loading*. 
 
-In this example you will see how to do it with lazy load.
+In this example you will see how to do it with *lazy loading*.
 
 ```ts
 import { HttpClientModule } from '@angular/common/http';
@@ -148,6 +149,7 @@ Inject the `CmsComponentData` data stream (it's a generic type, so you should us
 Finally, assign the `Observable` provided by the data stream to one of the properties of your controller, so that you can consume it from the view.
 
 It would look like this:
+
 ```ts
 import { Component } from '@angular/core';
 import { CmsComponentAComponent } from './cms-component-a-component';
@@ -177,6 +179,6 @@ In the template, use the async pipe to subscribe to the `Observable` and a condi
 </ng-container>
 ```
 
-Finally, this is how your component looks on the page.
+Finally, this is how your component looks on the page:
 
-<img src="../../media/exercice-2/2-1.png" width="100%" style/>
+<img src="../../media/exercise-2/2-1.png" width="100%"/>

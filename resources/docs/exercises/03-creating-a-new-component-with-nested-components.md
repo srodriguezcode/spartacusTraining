@@ -1,41 +1,40 @@
-# 3. Creating a new Component with nested Components
+# 3. Creating a New Component with Nested Components
 
-## 1. Component Creation in Hybris:
+## 1. Component Creation in Hybris
+
 Generate a new component type in Hybris, and add it to the `-items.xml` file, e.g., `spartacussampledata-items.xml`.
 
 ```xml
 ...
-    <collectiontypes>
-        <collectiontype elementtype="SimpleResponsiveBannerComponent" code="SimpleResponsiveBanners" type="set" />
-    </collectiontypes>
+<collectiontypes>
+    <collectiontype elementtype="SimpleResponsiveBannerComponent" code="SimpleResponsiveBanners" type="set" />
+</collectiontypes>
 ...
-
-        <itemtype code="ComponentBComponent" extends="SimpleCMSComponent"
-jaloclass="de.hybris.platform.spartacussampledata.jalo.ComponentBComponent">
-            <attributes>
-                <attribute qualifier="title" type="localized:java.lang.String">
-                    <persistence type="property"/>
-                </attribute>
-                <attribute qualifier="text" type="localized:java.lang.String">
-                    <persistence type="property">
-                        <columntype>
-                            <value>HYBRIS.LONG_STRING</value>
-                        </columntype>
-                    </persistence>
-                </attribute>
-                <attribute qualifier="banners" type="SimpleResponsiveBanners">
-                    <persistence type="property"/>
-                </attribute>
-                <attribute qualifier="banner1" type="SimpleResponsiveBannerComponent">
-                    <persistence type="property"/>
-                </attribute>
-                <attribute qualifier="banner2" type="SimpleResponsiveBannerComponent">
-                    <persistence type="property"/>
-                </attribute>
-            </attributes>
-        </itemtype>
-    </itemtypes>
- ...   
+<itemtype code="ComponentBComponent" extends="SimpleCMSComponent"
+    jaloclass="de.hybris.platform.spartacussampledata.jalo.ComponentBComponent">
+    <attributes>
+        <attribute qualifier="title" type="localized:java.lang.String">
+            <persistence type="property"/>
+        </attribute>
+        <attribute qualifier="text" type="localized:java.lang.String">
+            <persistence type="property">
+                <columntype>
+                    <value>HYBRIS.LONG_STRING</value>
+                </columntype>
+            </persistence>
+        </attribute>
+        <attribute qualifier="banners" type="SimpleResponsiveBanners">
+            <persistence type="property"/>
+        </attribute>
+        <attribute qualifier="banner1" type="SimpleResponsiveBannerComponent">
+            <persistence type="property"/>
+        </attribute>
+        <attribute qualifier="banner2" type="SimpleResponsiveBannerComponent">
+            <persistence type="property"/>
+        </attribute>
+    </attributes>
+</itemtype>
+...   
 ```
 
 In this case, your component has three properties related to child components: a collections of `SimpleResponsiveBannerComponents` and two `SimpleResponsiveBannerComponents`. This way, you'll be able to see the two ways of handling child components.
@@ -60,18 +59,17 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 ;;Section2CSlot-Homepage; Content for test Section 1 Slot;true;componentBTest
 ```
 
->[!IMPORTANT]
->You must add banners to completely fill the component; for that, it is a good idea to use SmartEdit for editing.
+> [!IMPORTANT]
+> You must add banners to completely fill the component; for that, it is a good idea to use SmartEdit for editing.
 >
-><img src="../../media/exercice-3/3-1.png" width="300px"/>
+> <img src="../../media/exercise-3/3-1.png" alt="SmartEdit Banner" width="500px"/>
 
 ## 2. Component Creation in Spartacus
 
 You will need to create your component in Spartacus with its respective module.
 
 ```sh
-ng g m component-b
-ng g c component-b
+ng g m component-b && ng g c component-b
 ```
 
 Now link your Spartacus component to the CMS component-b. To do this, in the `component-b.module.ts` file, you will link it in the imports section.
@@ -220,7 +218,7 @@ export class ComponentBComponent {
 
 To understand the next processes, look at the response of the CMS API call in your Browser.
 
-<img src="../../media/exercice-3/3-2.png"/>
+<img src="../../media/exercise-3/3-2.png" alt="Browser Network Console"/>
 
 As you can see, the components that we added directly in the component contain all the necessary data for rendering. On the other hand, the collection of banners has been transformed into a string with the ID of the child components. Therefore, you will have to handle them differently.
 
@@ -252,16 +250,16 @@ In the template, you'll only need to use one of Spartacus's Out of the Box direc
 </ng-container>
 ```
 
-### 2. Handling List of components
+### 2. Handling List of Components
 
 You will have to convert this list of IDs into renderable components. There are several approaches to resolve this. In this case, you will create a new property in your component's controller: transforming the Observable `data$` into an Observable of a list of `ContentSlotComponentData`.
 
 Using the split method, you convert the string with the IDs into a list of IDs, and use the getComponentData method of the Spartacus CmsService to convert it into a list of Observables.
 
 Use the following RxJs operators:
-- **switchMap**: transforms the Observable into another Observable with the data that it receives from the first one.
-- **combineLatest:** transforms a list of Observables into the Observable of a list.
-- **map:** transforms the results of an Observable
+- `switchMap`: transforms the Observable into another Observable with the data that it receives from the first one.
+- `combineLatest`: transforms a list of Observables into the Observable of a list.
+- `map`: transforms the results of an Observable
 
 Finally, you will subscribe to this Observable from the template, as you did previously:
 
@@ -279,7 +277,7 @@ Finally, you will subscribe to this Observable from the template, as you did pre
 ```
 
 > [!TIP]
-> RxJS is a library for composing asynchronous and event-based programs. Learning about it is very useful to understand how Spartacus works. To learn more visit [rxjs.dev](https://rxjs.dev/guide/overview)
+> *RxJS* is a library for composing asynchronous and event-based programs. Learning about it is very useful to understand how Spartacus works. To learn more visit [rxjs.dev](https://rxjs.dev/guide/overview)
 
 The final template will look like this:
 
@@ -324,4 +322,4 @@ The final template will look like this:
 
 Result:
 
-<img src="../../media/exercice-3/3-2.png"/>
+<img src="../../media/exercise-3/3-2.png" alt="Browser Network Console"/>

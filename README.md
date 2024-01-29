@@ -12,6 +12,14 @@ This repository is dedicated to providing comprehensive training materials and r
   - [Angular Environment Setup Guide](#angular-environment-setup-guide)
 - [Exercises](#exercises)
   - [Customizing an existing Spartacus Component](./resources/docs//exercises/01-customizing-an-existing-spartacus-component.md)
+  - [Creating a new component](./resources/docs/exercises/02-creating-a-new-component.md)
+  - [Creating a new Component with nested Components](./resources/docs/exercises/03-creating-a-new-component-with-nested-components.md)
+  - TODO Add more exercises
+- [Routing](#routing)
+  - [Adding Content Page](./resources/docs/routing/01-adding-content-page.md)
+  - [Customizing Routes](./resources/docs/routing/02-customizing-routes.md)
+  - [Using Router Link](./resources/docs/routing/03-using-router-links.md)
+  - [Exercises](./resources/docs/routing/04-exercises.md)
 
 ## Setup the Environment
 
@@ -62,28 +70,27 @@ For this training it's necessary to have an Hybris backend running to support ou
 
 4. Open the file `src\app\spartacus\spartacus-configuration.module.ts`, and make sure to add 'powertools-spa' to baseSite
 
-    ```ts
-    ...
-    @NgModule({
-      declarations: [],
-      imports: [
-      ],
-      providers: [provideConfig(layoutConfig), provideConfig(mediaConfig), ...defaultCmsContentProviders, provideConfig(<OccConfig>{
-        backend: {
-          occ: {
-            baseUrl: 'https://localhost:9002',
-            context: {
-              urlParameters: ['baseSite', 'language', 'currency'],
-              baseSite: ['electronics-spa','apparel-uk-spa','powertools-spa'],
-              currency: ['USD', 'GBP',]
-            },
-          }
-      },
-    })
-    ...
-    ]
-    })
-    ```
+```ts
+...
+@NgModule({
+  declarations: [],
+  imports: [],
+  providers: [provideConfig(layoutConfig), provideConfig(mediaConfig), ...defaultCmsContentProviders, provideConfig(<OccConfig>{
+    backend: {
+      occ: {
+        baseUrl: 'https://localhost:9002',
+        context: {
+          urlParameters: ['baseSite', 'language', 'currency'],
+          baseSite: ['electronics-spa','apparel-uk-spa','powertools-spa'],
+          currency: ['USD', 'GBP',]
+        },
+      }
+    },
+  })
+  ...
+  ]
+})
+```
 
 5. Start your Angular frontend Application using `npm start`. You can check if it is working properly accesing `http://localhost:4200/electronics-spa/en/USD/`. Make sure your hybris backend application is running on the same time.
 
@@ -95,3 +102,14 @@ In this training, you will complete some exercises to gain practical knowledge o
 2. [Creating a new component](./resources/docs/exercises/02-creating-a-new-component.md)
 3. [Creating a new Component with nested Components](./resources/docs/exercises/03-creating-a-new-component-with-nested-components.md)
 4. TODO
+
+## Routing
+
+Welcome to the Routing section of our Spartacus training course! In this segment, we'll dive into the fundamental concept of routing within the Spartacus framework.
+
+In this section, we will cover the following topics:
+
+1. [Adding Content Page](./resources/docs/routing/01-adding-content-page.md)
+2. [Customizing Routes](./resources/docs/routing/02-customizing-routes.md)
+3. [Using Router Link](./resources/docs/routing/03-using-router-links.md)
+4. [Exercises](./resources/docs/routing/04-exercises.md)
