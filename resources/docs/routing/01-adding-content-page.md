@@ -60,8 +60,8 @@ ng g m custom-routing
 
 const STATIC_ROUTES: Routes = [
   {
-  	path: 'static-page',
-  	component: StaticPageComponent
+    path: 'static-page',
+    component: StaticPageComponent
   },
 ];
 
