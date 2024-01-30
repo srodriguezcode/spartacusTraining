@@ -54,7 +54,7 @@ import { MyMiniCartModule } from "./my-mini-cart/my-mini-cart.module";
 
 @NgModule({
   declarations: [
-    AppComponent // Make sure your component is not declared here because it will cause an error. This might happen if you generate the component before the module
+    AppComponent // Make sure your component is not declared here because it will cause an error. This might happen if you generate the component before the module.
   ],
   imports: [
     ...,
@@ -67,13 +67,13 @@ import { MyMiniCartModule } from "./my-mini-cart/my-mini-cart.module";
 ...
 ```
 
-With these changes you can see that the MiniCart has disappeared and now the default message that Angular CLI produces on newly generated components is displayed. This means that MiniCartComponent has been successfully mapped to MyMiniCartComponent.
+With these changes you can see that the MiniCart has disappeared and now the default message that Angular CLI produces on newly generated components is displayed. This means that the MiniCartComponent has been successfully mapped to MyMiniCartComponent.
 
 <div align="center">
   <img src="../../media/exercise-1/1-2.png" alt="New Mini Cart Component" width="400px" />
 </div>
 
-We want to introduce some minor changes to the component so the idea is to keep the component previous behaviour. In order to do this we will inherit from the MiniCartComponent:
+We want to introduce some minor changes to the component so the idea is to keep most of the previous behaviour. In order to do this we will inherit from the original MiniCartComponent:
 
 ```ts
 export class MyMiniCartComponent extends MiniCartComponent {
@@ -132,3 +132,5 @@ The final product will look like this:
 </div>
 
 Congratulations! You have succesfully modified your first component in Spartacus! You can keep learning with the next [exercise](./02-creating-a-new-component.md).
+
+If you encounter difficulties, feel free to compare your code with the provided [solution](https://github.com/ETuria-Labs/spartacus-training/compare/initial-angular-environment...01-customizing-an-existing-spartacus-component?expand=1).

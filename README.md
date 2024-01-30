@@ -11,15 +11,16 @@ This repository is dedicated to providing comprehensive training materials and r
   - [Hybris Environment Setup Guide](#hybris-environment-setup-guide)
   - [Angular Environment Setup Guide](#angular-environment-setup-guide)
 - [Exercises](#exercises)
-  - [Customizing an existing Spartacus Component](./resources/docs//exercises/01-customizing-an-existing-spartacus-component.md)
-  - [Creating a new component](./resources/docs/exercises/02-creating-a-new-component.md)
-  - [Creating a new Component with nested Components](./resources/docs/exercises/03-creating-a-new-component-with-nested-components.md)
-  - TODO Add more exercises
-- [Routing](#routing)
-  - [Adding Content Page](./resources/docs/routing/01-adding-content-page.md)
-  - [Customizing Routes](./resources/docs/routing/02-customizing-routes.md)
-  - [Using Router Link](./resources/docs/routing/03-using-router-links.md)
-  - [Exercises](./resources/docs/routing/04-exercises.md)
+  - [Working with components](#working-with-components)
+    - [Customizing an existing Spartacus Component](./resources/docs//exercises/01-customizing-an-existing-spartacus-component.md)
+    - [Creating a new component](./resources/docs/exercises/02-creating-a-new-component.md)
+    - [Creating a new Component with nested Components](./resources/docs/exercises/03-creating-a-new-component-with-nested-components.md)
+    - TODO Add more exercises
+  - [Routing](#routing)
+    - [Adding Content Page](./resources/docs/routing/01-adding-content-page.md)
+    - [Customizing Routes](./resources/docs/routing/02-customizing-routes.md)
+    - [Using Router Link](./resources/docs/routing/03-using-router-links.md)
+    - [Exercises](./resources/docs/routing/04-exercises.md)
 
 ## Setup the Environment
 
@@ -46,12 +47,12 @@ This repository is dedicated to providing comprehensive training materials and r
 
 ### Hybris environment setup guide
 
-For this training it's necessary to have an Hybris backend running to support our Spartacus frontend. For the sake of simplicity you can find an already prepared project in the '*develop*' branch. We will setup that one first.
+For this training it's necessary to have an Hybris backend with an accelerator running to support our Spartacus frontend. For the sake of simplicity you can find an already prepared project in the '*develop*' branch. We will setup that one first.
 
 1. Clone the repository and switch to the '*develop*' branch.
 2. Extract the appropriate hybris version (2205) in the root of the project. Merge files if required.
 3. Open your command prompt in the root folder and execute the `./setup_environment.sh` script. This will complete the setup for you. The process will take some time, so you can start building your Angular environment.
-4. Once finished you can check if it's working properly accesing `http://localhost:9002`.
+4. Once finished start the application executing `./hybrisserver` in `hybris/bin/platform` folder. You can check if it's working properly accesing `http://localhost:9002`.
 
 ### Angular environment setup guide
 
@@ -68,44 +69,68 @@ For this training it's necessary to have an Hybris backend running to support ou
       npm install
     ```
 
-4. Open the file `src\app\spartacus\spartacus-configuration.module.ts`, and make sure to add 'powertools-spa' to baseSite
+4. Open the file `src\app\spartacus\spartacus-configuration.module.ts`, and make sure it looks like this:
 
-```ts
-...
-@NgModule({
-  declarations: [],
-  imports: [],
-  providers: [provideConfig(layoutConfig), provideConfig(mediaConfig), ...defaultCmsContentProviders, provideConfig(<OccConfig>{
-    backend: {
-      occ: {
-        baseUrl: 'https://localhost:9002',
+    ```ts
+    import { NgModule } from '@angular/core';
+    import { translationChunksConfig, translations } from "@spartacus/assets";
+    import { FeaturesConfig, I18nConfig, OccConfig, provideConfig, SiteContextConfig } from "@spartacus/core";
+    import { defaultB2bOccConfig } from "@spartacus/setup";
+    import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacus/storefront";
+
+    @NgModule({
+      declarations: [],
+      imports: [
+      ],
+      providers: [provideConfig(layoutConfig), provideConfig(mediaConfig), ...defaultCmsContentProviders, provideConfig(<OccConfig>{
+        backend: {
+          occ: {
+            baseUrl: 'https://localhost:9002'
+          }
+        },
         context: {
           urlParameters: ['baseSite', 'language', 'currency'],
-          baseSite: ['electronics-spa','apparel-uk-spa','powertools-spa'],
+          baseSite: ['electronics-spa'],
           currency: ['USD', 'GBP',]
+        }
+      }), provideConfig(<SiteContextConfig>{
+        context: {},
+      }), provideConfig(<I18nConfig>{
+        i18n: {
+          resources: translations,
+          chunks: translationChunksConfig,
+          fallbackLang: 'en'
         },
-      }
-    },
-  })
-  ...
-  ]
-})
-```
+      }), provideConfig(<FeaturesConfig>{
+        features: {
+          level: '6.5'
+        }
+      }), provideConfig(defaultB2bOccConfig)]
+    })
+    export class SpartacusConfigurationModule { }
 
+    ```
+    
 5. Start your Angular frontend Application using `npm start`. You can check if it is working properly accesing `http://localhost:4200/electronics-spa/en/USD/`. Make sure your hybris backend application is running on the same time.
 
 ## Exercises
 
 In this training, you will complete some exercises to gain practical knowledge of Spartacus. Each exercise has its own guide to follow, and you can find the resolved solutions in different branches of this repository. If you encounter difficulties, feel free to compare your code with the provided solution, but remember that if you use different versions, the code might not work as expected.
 
+### Working with components
+
+In this section you will learn how to create and modify components in Spartacus.
+
+The following topics will be covered in this part of the training:
+
 1. [Customizing an existing Spartacus Component](./resources/docs/exercises/01-customizing-an-existing-spartacus-component.md)
 2. [Creating a new component](./resources/docs/exercises/02-creating-a-new-component.md)
 3. [Creating a new Component with nested Components](./resources/docs/exercises/03-creating-a-new-component-with-nested-components.md)
 4. TODO
 
-## Routing
+### Routing
 
-Welcome to the Routing section of our Spartacus training course! In this segment, we'll dive into the fundamental concept of routing within the Spartacus framework.
+In this segment, we'll dive into the fundamental concept of routing within the Spartacus framework.
 
 In this section, we will cover the following topics:
 
