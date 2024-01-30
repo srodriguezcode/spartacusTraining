@@ -14,7 +14,7 @@ This repository is dedicated to providing comprehensive training materials and r
   - [Customizing an existing Spartacus Component](./resources/docs//exercises/01-customizing-an-existing-spartacus-component.md)
   - [Creating a new component](./resources/docs/exercises/02-creating-a-new-component.md)
   - [Creating a new Component with nested Components](./resources/docs/exercises/03-creating-a-new-component-with-nested-components.md)
-  - TODO Add more exercises
+  - [Creating a new component with a extra logic](./resources/docs/exercises/04-creating-a-new-component-with-a-extra-logic.md)
 - [Routing](#routing)
   - [Adding Content Page](./resources/docs/routing/01-adding-content-page.md)
   - [Customizing Routes](./resources/docs/routing/02-customizing-routes.md)

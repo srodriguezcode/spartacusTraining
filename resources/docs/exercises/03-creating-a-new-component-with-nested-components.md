@@ -44,9 +44,10 @@ Take your time to instantiate and add the component to a page in your applicatio
 However, you can use the following impex:
 
 ```impex
-$contentCatalog=electronics-spaContentCatalog  
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]  
-$lang=en  
+$version=staged
+$contentCatalog=electronics-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=$version])[default=$contentCatalog:$version]
+$lang=en
   
 INSERT_UPDATE ComponentBComponent; $contentCV[unique=true]; uid[unique = true]; name; title[lang = $lang]; text[lang = $lang];&componentRef  
 ;; componentBTest ; Component B Test ; "This is Component B" ; "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vestibulum leo lacus, aliquet venenatis libero luctus eget.";componentATest  
@@ -59,10 +60,15 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 ;;Section2CSlot-Homepage; Content for test Section 1 Slot;true;componentBTest
 ```
 
+> [!TIP]
+> This impex uses the staged version by default, so you must sync the page via SmartEdit. However, if you prefer, you can switch the version to online to display the changes quickly.
+
 > [!IMPORTANT]
 > You must add banners to completely fill the component; for that, it is a good idea to use SmartEdit for editing.
->
-> <img src="../../media/exercise-3/3-1.png" alt="SmartEdit Banner" width="500px"/>
+> <div align="center">
+> <img src="../../media/exercise-3/3-1.png" alt="SmartEdit Banner" width="400px" />
+> </div>
+
 
 ## 2. Component Creation in Spartacus
 
@@ -322,4 +328,6 @@ The final template will look like this:
 
 Result:
 
-<img src="../../media/exercise-3/3-3.png" alt="Browser Network Console"/>
+<div align="center">
+  <img src="../../media/exercise-3/3-3.png" alt="Component result" width="400px" />
+</div>

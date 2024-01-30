@@ -27,9 +27,10 @@ Generate a new component type in Hybris and add it to the `-items.xml` file (e.g
 You must add the new component to a group and a page. You can also do it in the impex file.
 
 ```impex
-$contentCatalog=electronics-spaContentCatalog  
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]  
-$lang=en  
+$version=staged
+$contentCatalog=electronics-spaContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=$version])[default=$contentCatalog:$version]
+$lang=en
   
 INSERT_UPDATE ComponentAComponent; $contentCV[unique=true]; uid[unique = true]; name; title[lang = $lang]; text[lang = $lang];&componentRef  
 ;; componentATest ; Component A Test ; "This is Component A" ; "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vestibulum leo lacus, aliquet venenatis libero luctus eget.";componentATest  
@@ -41,6 +42,9 @@ INSERT_UPDATE ComponentTypeGroups2ComponentType; source(code)[unique=true]; targ
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)  
 ;;Section2CSlot-Homepage; Content for test Section 1 Slot;true;componentATest
 ```
+
+> [!TIP]
+> This impex uses the staged version by default, so you must sync the page via SmartEdit. However, if you prefer, you can switch the version to online to display the changes quickly.
 
 > [!IMPORTANT]  
 > You need to sync the *staging page* to publish the online version.
