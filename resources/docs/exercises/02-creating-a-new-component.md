@@ -58,7 +58,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 
 ## Component Creation in Spartacus
 
-In the backend, we added our component to Section2CSlot-Homepage, but it's not visible at the moment. We will address that in our Spartacus frontend. Let's start creating the component in the command prompt:
+In the backend, we added our component to *Section2CSlot-Homepage*, but it's not visible at the moment. We will address that in our Spartacus frontend. Let's start creating the component in the command prompt:
 
 ```sh
 ng g m component-a && ng g c component-a
@@ -96,7 +96,7 @@ Now we should import the component module to the app. This can be done in two wa
 >
 >You can learn more about lazy loading visiting the [official Angular documentation](https://angular.io/guide/lazy-loading-ngmodules).
 
-In this example we will apply the *lazy loading* approach:
+In this example we will apply the *lazy loading* approach in the appModule:
 
 ```ts
 ...
@@ -140,7 +140,7 @@ export interface CmsComponentAComponent extends CmsComponent{
 
 Now we will dive into the logic of the component. For this exercise it will be simple because we are just going to display the backend data.
 
-We will inject the `CmsComponentData` data stream into the constructor. It's a generig type so we will use the interface that we just created to map it.
+We will inject the `CmsComponentData` data stream into the constructor. It's a generic type so we will use the interface that we just created to map it.
 
 Finally, we will assign the `Observable` provided by the data stream to one of the properties of our controller, so that we can consume it from the view.
 
@@ -166,7 +166,7 @@ export class ComponentAComponent {
 }
 ```
 
-In the template, we will the async pipe to subscribe to the `Observable` and a conditional to prevent rendering issues.
+In the template, we will add the async pipe to subscribe to the `Observable` and a conditional to prevent rendering issues.
 
 ```html
 <ng-container *ngIf="data$ | async as data">
