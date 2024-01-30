@@ -16,6 +16,8 @@ This repository is dedicated to providing comprehensive training materials and r
     - [Creating a new component](./resources/docs/exercises/02-creating-a-new-component.md)
     - [Creating a new Component with nested Components](./resources/docs/exercises/03-creating-a-new-component-with-nested-components.md)
     - [Creating a new component with a extra logic](./resources/docs/exercises/04-creating-a-new-component-with-a-extra-logic.md)
+    - [CMSFlexComponent (Special Case)](./resources/docs/exercises/05-cmsflexcomponent-(special-case).md)
+    
   - [Routing](#routing)
     - [Adding Content Page](./resources/docs/routing/01-adding-content-page.md)
     - [Customizing Routes](./resources/docs/routing/02-customizing-routes.md)
@@ -127,6 +129,7 @@ The following topics will be covered in this part of the training:
 2. [Creating a new component](./resources/docs/exercises/02-creating-a-new-component.md)
 3. [Creating a new Component with nested Components](./resources/docs/exercises/03-creating-a-new-component-with-nested-components.md)
 4. [Creating a new component with a extra logic](./resources/docs/exercises/04-creating-a-new-component-with-a-extra-logic.md)
+5. [CMSFlexComponent (Special Case)](./resources/docs/exercises/05-cmsflexcomponent-(special-case).md)
 
 ### Routing
 
