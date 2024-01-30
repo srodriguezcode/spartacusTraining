@@ -53,7 +53,6 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 > [!IMPORTANT]  
 > You need to sync the *staging page* to publish the online version.
 
-
 > [!TIP]
 > For more information on how to create components in hybris with impex, please refer to this [external guide](http://javainsimpleway.com/how-to-add-new-custom-cms-component-type-to-a-page-in-hybris/)
 
