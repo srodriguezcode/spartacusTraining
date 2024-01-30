@@ -12,7 +12,7 @@ This repository is dedicated to providing comprehensive training materials and r
   - [Angular Environment Setup Guide](#angular-environment-setup-guide)
 - [Exercises](#exercises)
   - [Working with components](#working-with-components)
-    - [Customizing an existing Spartacus Component](./resources/docs//exercises/01-customizing-an-existing-spartacus-component.md)
+    - [Customizing an existing Spartacus Component](./resources/docs/exercises/01-customizing-an-existing-spartacus-component.md)
     - [Creating a new component](./resources/docs/exercises/02-creating-a-new-component.md)
     - [Creating a new Component with nested Components](./resources/docs/exercises/03-creating-a-new-component-with-nested-components.md)
     - [Creating a new component with a extra logic](./resources/docs/exercises/04-creating-a-new-component-with-a-extra-logic.md)
@@ -40,7 +40,7 @@ This repository is dedicated to providing comprehensive training materials and r
 > [!TIP]
 > Is strongly recommended to use [*Node Version Manager*](https://github.com/nvm-sh/nvm)
 
-- **Package Manage (npm)**: *8.19.3*
+- **Node Package Manager (npm)**: *8.19.3*
   - **Minimum required version**: *8.0* or newer
 
 - **Spartacus libraries**: 6.5.0 (We will build them during the setup)

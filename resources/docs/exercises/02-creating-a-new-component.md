@@ -91,9 +91,13 @@ import { CmsConfig, ConfigModule } from '@spartacus/core';
 export class ComponentAModule { }
 ```
 
-Now we should import the compoment module to the app. This can be done in two ways, either by directly adding it to the *Imports* section of `app.module`, or by using *lazy loading*.
+Now we should import the component module to the app. This can be done in two ways, either by directly adding it to the *Imports* section of `app.module`, or by using *lazy loading*.
 
-In this example you will see how to do it with *lazy loading*:
+>*By default, NgModules are eagerly loaded. This means that as soon as the application loads, so do all the NgModules, whether they are immediately necessary or not. For large applications with lots of routes, consider lazy loading —a design pattern that loads NgModules as needed. Lazy loading helps keep initial bundle sizes smaller, which in turn helps decrease load times.*
+>
+>You can learn more about lazy loading visiting the [official Angular documentation](https://angular.io/guide/lazy-loading-ngmodules).
+
+In this example we will apply the *lazy loading* approach:
 
 ```ts
 ...
@@ -118,13 +122,13 @@ import { provideConfig } from '@spartacus/core';
 export class AppModule {}
 ```
 
-You need to create an interface that describes the data that the API sends about the component. Use these commands:
+We will need an interface to decribe the data that we are going to receive from the backend about the component. Open your command prompt and use the following command:
 
 ```sh
 ng g i component-a/Cms-component-a-component
 ```
 
-Edit the `cms-component-a-component.ts` It would look like this.
+We will edit the `cms-component-a-component.ts` to look like this.
 
 ```ts
 import { CmsComponent } from "@spartacus/core";
@@ -135,11 +139,11 @@ export interface CmsComponentAComponent extends CmsComponent{
 }
 ```
 
-Now you will work the logic. It will be simple because you will only receive the information that brings the CMS component:
+Now we will dive into the logic of the component. For this exercise it will be simple because we are just going to display the backend data.
 
-Inject the `CmsComponentData` data stream (it's a generic type, so you should use the interface for your component here).
+We will inject the `CmsComponentData` data stream into the constructor. It's a generig type so we will use the interface that we just created to map it.
 
-Finally, assign the `Observable` provided by the data stream to one of the properties of your controller, so that you can consume it from the view.
+Finally, we will assign the `Observable` provided by the data stream to one of the properties of our controller, so that we can consume it from the view.
 
 It would look like this:
 
@@ -163,7 +167,7 @@ export class ComponentAComponent {
 }
 ```
 
-In the template, use the async pipe to subscribe to the `Observable` and a conditional to prevent rendering issues.
+In the template, we will the async pipe to subscribe to the `Observable` and a conditional to prevent rendering issues.
 
 ```html
 <ng-container *ngIf="data$ | async as data">
@@ -172,6 +176,12 @@ In the template, use the async pipe to subscribe to the `Observable` and a condi
 </ng-container>
 ```
 
-Finally, this is how your component looks on the page:
+Finally, this is how the component should look on the page:
 
-<img src="../../media/exercise-2/2-1.png" width="100%"/>
+<div align="center">
+  <img src="../../media/exercise-2/2-1.png" alt="New component on home page" width="100%"/>
+</div>
+
+Congratulations! You have succesfully created your first component in Spartacus! You can keep learning with the next [exercise](./03-creating-a-new-component-with-nested-components.md).
+
+If you encounter difficulties, feel free to compare your code with the provided [solution](https://github.com/ETuria-Labs/spartacus-training/compare/01-customizing-an-existing-spartacus-component...02-creating-a-new-component?expand=1).
