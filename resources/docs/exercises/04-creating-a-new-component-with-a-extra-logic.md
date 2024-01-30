@@ -45,13 +45,13 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 ;;Section2CSlot-Homepage; Content for test Section 1 Slot;true;componentCTest
 ```
 
->[!TIP]
->This impex uses the staged version by default, so you must sync the page via SmartEdit. However, if you prefer, you can switch the version to online to display the changes quickly.
+> [!TIP]
+> This impex uses the staged version by default, so you must sync the page via SmartEdit. However, if you prefer, you can switch the version to online to display the changes quickly.
 
 Create a new `Component C`, following the usual operations as already explained in the previous exercises of this course:
 
-> [!INFO] 
-Exercise of Interest.
+> [!NOTE]
+Recommended Exercises:
 > - [Customizing an existing Spartacus Component](./resources/docs//exercises/01-customizing-an-existing-spartacus-component.md)
 > - [Creating a new component](./resources/docs/exercises/02-creating-a-new-component.md)
 > - [Creating a new Component with nested Components](./resources/docs/exercises/03-creating-a-new-component-with-nested-components.md)
