@@ -1,8 +1,10 @@
 # 2. Creating a New Component
 
-## 1. Component Creation in Hybris
+In this exercise, we will create a new component from scratch. For this purpose, we will have to create it in both Hybris and Spartacus.
 
-Generate a new component type in Hybris and add it to the `-items.xml` file (e.g., spartacussampledata-items.xml).
+## Component Creation in Hybris
+
+The first step will be to declare the new component type in a `-items.xml` file. For this training we will be addding it in `spartacussampledata-items.xml`.
 
 ```xml
 ...
@@ -24,7 +26,9 @@ Generate a new component type in Hybris and add it to the `-items.xml` file (e.g
 ...
 ```
 
-You must add the new component to a group and a page. You can also do it in the impex file.
+Remember to generate the component executing `ant all` on platform folder.
+
+Now we will use impex to create the new component and assign it to a group and a page. You can either import it directly on `hac` or add it to an impex file and initialize.
 
 ```impex
 $version=staged
@@ -51,17 +55,17 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 
 
 > [!TIP]
-> For more information on how to create components in hybris with impex, please refer to this [guide](http://javainsimpleway.com/how-to-add-new-custom-cms-component-type-to-a-page-in-hybris/)
+> For more information on how to create components in hybris with impex, please refer to this [external guide](http://javainsimpleway.com/how-to-add-new-custom-cms-component-type-to-a-page-in-hybris/)
 
-## 2. Component Creation in Spartacus
+## Component Creation in Spartacus
 
-Now that the component is inside the `Section2CSlot-Homepage`, it's not visible on the homepage. Why?. Because Spartacus doesn't know the component's appearance or behavior. You need to create the component in Spartacus. Use these commands:
+In the backend, we added our component to Section2CSlot-Homepage, but it's not visible at the moment. We will address that in our Spartacus frontend. Let's start creating the component in the command prompt:
 
 ```sh
 ng g m component-a && ng g c component-a
 ```
 
-In the `component-a.module.ts` file, you will have to link the Spartacus component to the CMS component. Add the component to Declarations and then map it to the CMS component in imports.
+In the `component-a.module.ts` file, we will have to link the Spartacus component to our custom CMS component. Add the component to *declarations* and then map it to the CMS component in *imports*.
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -71,7 +75,7 @@ import { CmsConfig, ConfigModule } from '@spartacus/core';
 
 @NgModule({
   declarations: [
-    ComponentAComponent
+    ComponentAComponent //Declare the hybris side component
   ],
   imports: [
     CommonModule,
@@ -87,31 +91,16 @@ import { CmsConfig, ConfigModule } from '@spartacus/core';
 export class ComponentAModule { }
 ```
 
-You must import your custom module in your app. You can do this in two ways, either by directly adding it to the *Imports* section of `app.module` or by using *lazy loading*. 
+Now we should import the compoment module to the app. This can be done in two ways, either by directly adding it to the *Imports* section of `app.module`, or by using *lazy loading*.
 
-In this example you will see how to do it with *lazy loading*.
+In this example you will see how to do it with *lazy loading*:
 
 ```ts
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
-import { AppRoutingModule} from '@spartacus/storefront';
-import { AppComponent } from './app.component';
-import { SpartacusModule } from './spartacus/spartacus.module';
+...
 import { provideConfig } from '@spartacus/core';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
-    SpartacusModule,
-  ],
+  ...,
   providers:[
     provideConfig({
       featureModules:{
