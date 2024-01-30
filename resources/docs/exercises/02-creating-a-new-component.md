@@ -1,8 +1,10 @@
 # 2. Creating a New Component
 
-## 1. Component Creation in Hybris
+In this exercise, we will create a new component from scratch. For this purpose, we will have to create it in both Hybris and Spartacus.
 
-Generate a new component type in Hybris and add it to the `-items.xml` file (e.g., spartacussampledata-items.xml).
+## Component Creation in Hybris
+
+The first step will be to declare the new component type in a `-items.xml` file. For this training we will be addding it in `spartacussampledata-items.xml`.
 
 ```xml
 ...
@@ -24,7 +26,9 @@ Generate a new component type in Hybris and add it to the `-items.xml` file (e.g
 ...
 ```
 
-You must add the new component to a group and a page. You can also do it in the impex file.
+Remember to generate the component executing `ant all` on platform folder.
+
+Now we will use impex to create the new component and assign it to a group and a page. You can either import it directly on `hac` or add it to an impex file and initialize.
 
 ```impex
 $version=staged
@@ -50,17 +54,17 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 > You need to sync the *staging page* to publish the online version.
 
 > [!TIP]
-> For more information on how to create components in hybris with impex, please refer to this [guide](http://javainsimpleway.com/how-to-add-new-custom-cms-component-type-to-a-page-in-hybris/)
+> For more information on how to create components in hybris with impex, please refer to this [external guide](http://javainsimpleway.com/how-to-add-new-custom-cms-component-type-to-a-page-in-hybris/)
 
-## 2. Component Creation in Spartacus
+## Component Creation in Spartacus
 
-Now that the component is inside the `Section2CSlot-Homepage`, it's not visible on the homepage. Why?. Because Spartacus doesn't know the component's appearance or behavior. You need to create the component in Spartacus. Use these commands:
+In the backend, we added our component to Section2CSlot-Homepage, but it's not visible at the moment. We will address that in our Spartacus frontend. Let's start creating the component in the command prompt:
 
 ```sh
 ng g m component-a && ng g c component-a
 ```
 
-In the `component-a.module.ts` file, you will have to link the Spartacus component to the CMS component. Add the component to Declarations and then map it to the CMS component in imports.
+In the `component-a.module.ts` file, we will have to link the Spartacus component to our custom CMS component. Add the component to *declarations* and then map it to the CMS component in *imports*.
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -70,7 +74,7 @@ import { CmsConfig, ConfigModule } from '@spartacus/core';
 
 @NgModule({
   declarations: [
-    ComponentAComponent
+    ComponentAComponent //Declare the hybris side component
   ],
   imports: [
     CommonModule,
@@ -86,31 +90,20 @@ import { CmsConfig, ConfigModule } from '@spartacus/core';
 export class ComponentAModule { }
 ```
 
-You must import your custom module in your app. You can do this in two ways, either by directly adding it to the *Imports* section of `app.module` or by using *lazy loading*. 
+Now we should import the component module to the app. This can be done in two ways, either by directly adding it to the *Imports* section of `app.module`, or by using *lazy loading*.
 
-In this example you will see how to do it with *lazy loading*.
+>*By default, NgModules are eagerly loaded. This means that as soon as the application loads, so do all the NgModules, whether they are immediately necessary or not. For large applications with lots of routes, consider lazy loading —a design pattern that loads NgModules as needed. Lazy loading helps keep initial bundle sizes smaller, which in turn helps decrease load times.*
+>
+>You can learn more about lazy loading visiting the [official Angular documentation](https://angular.io/guide/lazy-loading-ngmodules).
+
+In this example we will apply the *lazy loading* approach:
 
 ```ts
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
-import { AppRoutingModule} from '@spartacus/storefront';
-import { AppComponent } from './app.component';
-import { SpartacusModule } from './spartacus/spartacus.module';
+...
 import { provideConfig } from '@spartacus/core';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
-    SpartacusModule,
-  ],
+  ...,
   providers:[
     provideConfig({
       featureModules:{
@@ -128,13 +121,13 @@ import { provideConfig } from '@spartacus/core';
 export class AppModule {}
 ```
 
-You need to create an interface that describes the data that the API sends about the component. Use these commands:
+We will need an interface to decribe the data that we are going to receive from the backend about the component. Open your command prompt and use the following command:
 
 ```sh
 ng g i component-a/Cms-component-a-component
 ```
 
-Edit the `cms-component-a-component.ts` It would look like this.
+We will edit the `cms-component-a-component.ts` to look like this.
 
 ```ts
 import { CmsComponent } from "@spartacus/core";
@@ -145,11 +138,11 @@ export interface CmsComponentAComponent extends CmsComponent{
 }
 ```
 
-Now you will work the logic. It will be simple because you will only receive the information that brings the CMS component:
+Now we will dive into the logic of the component. For this exercise it will be simple because we are just going to display the backend data.
 
-Inject the `CmsComponentData` data stream (it's a generic type, so you should use the interface for your component here).
+We will inject the `CmsComponentData` data stream into the constructor. It's a generig type so we will use the interface that we just created to map it.
 
-Finally, assign the `Observable` provided by the data stream to one of the properties of your controller, so that you can consume it from the view.
+Finally, we will assign the `Observable` provided by the data stream to one of the properties of our controller, so that we can consume it from the view.
 
 It would look like this:
 
@@ -173,7 +166,7 @@ export class ComponentAComponent {
 }
 ```
 
-In the template, use the async pipe to subscribe to the `Observable` and a conditional to prevent rendering issues.
+In the template, we will the async pipe to subscribe to the `Observable` and a conditional to prevent rendering issues.
 
 ```html
 <ng-container *ngIf="data$ | async as data">
@@ -182,8 +175,12 @@ In the template, use the async pipe to subscribe to the `Observable` and a condi
 </ng-container>
 ```
 
-Finally, this is how your component looks on the page:
+Finally, this is how the component should look on the page:
 
 <div align="center">
-  <img src="../../media/exercise-2/2-1.png"  alt="Component result" width="600px" />
+  <img src="../../media/exercise-2/2-1.png" alt="New component on home page" width="100%"/>
 </div>
+
+Congratulations! You have succesfully created your first component in Spartacus! You can keep learning with the next [exercise](./03-creating-a-new-component-with-nested-components.md).
+
+If you encounter difficulties, feel free to compare your code with the provided [solution](https://github.com/ETuria-Labs/spartacus-training/compare/01-customizing-an-existing-spartacus-component...02-creating-a-new-component?expand=1).
