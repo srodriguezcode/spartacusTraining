@@ -101,7 +101,7 @@ In this training, you will complete some exercises to gain practical knowledge o
 1. [Customizing an existing Spartacus Component](./resources/docs/exercises/01-customizing-an-existing-spartacus-component.md)
 2. [Creating a new component](./resources/docs/exercises/02-creating-a-new-component.md)
 3. [Creating a new Component with nested Components](./resources/docs/exercises/03-creating-a-new-component-with-nested-components.md)
-4. TODO
+4. [Creating a new component with a extra logic](./resources/docs/exercises/04-creating-a-new-component-with-a-extra-logic.md)
 
 ## Routing
 

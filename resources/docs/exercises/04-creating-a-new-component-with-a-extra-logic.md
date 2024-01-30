@@ -50,7 +50,8 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 
 Create a new `Component C`, following the usual operations as already explained in the previous exercises of this course:
 
-> [!INFO] Exercise of Interest.
+> [!INFO] 
+Exercise of Interest.
 > - [Customizing an existing Spartacus Component](./resources/docs//exercises/01-customizing-an-existing-spartacus-component.md)
 > - [Creating a new component](./resources/docs/exercises/02-creating-a-new-component.md)
 > - [Creating a new Component with nested Components](./resources/docs/exercises/03-creating-a-new-component-with-nested-components.md)
