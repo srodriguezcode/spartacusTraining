@@ -1,6 +1,6 @@
 # Building Spartacus Libraries
 
-To access the Spartacus libraries required for the project in RBSC, you need the appropriate licenses. For this training, we will generate them using the open-source code on GitHub. We will follow the [official instructions provided by SAP](https://github.com/SAP/spartacus/blob/release/6.0.x/docs/self-publishing-spartacus-libraries.md). Additionally, please carefully read the following considerations:
+To access the Spartacus libraries required for the project in *Repository Based Shipment Channel* (RBSC), you need the appropriate licenses. For this training, we will generate them using the open-source code on GitHub. We will follow the [official instructions provided by SAP](https://github.com/SAP/spartacus/blob/release/6.0.x/docs/self-publishing-spartacus-libraries.md). Additionally, please carefully read the following considerations:
 
 - In the step where you have to checkout a branch from the Spartacus repository, choose the latest release branch (such as release/6.6.x): `git checkout release/6.6.x`
 

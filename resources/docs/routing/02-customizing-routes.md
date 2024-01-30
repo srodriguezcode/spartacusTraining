@@ -29,7 +29,7 @@ const STATIC_ROUTES: Routes = [
 		data:{ pageLabel: 'cart' }
 	},
   {
-    path: 'alias/cns',
+    path: 'alias/tr',
     component: PageLayoutComponent,
     data: { pageLabel: '/faq' },
     canActivate: [CmsPageGuard]
@@ -77,7 +77,7 @@ http://localhost:4200/electronics-spa/en/USD/electronics/cameras/300938
 ...
 ```
 
-### Step 5. Check That Now Is Working For *Both* paths
+### Step 5. Check That Now Is Working For *Both* Paths
 
 ```http
 http://localhost:4200/electronics-spa/en/USD/electronics/cameras/300938
@@ -96,7 +96,7 @@ http://localhost:4200/electronics-spa/en/USD/electronics/cameras/300938/Photosma
 ...
 ```
 
-> [!FAIL] 
+> [!CAUTION] 
 > Now if you go and click in the product again the URL will not works because manufacturer is not provided when it's not need it
 
 ### Step 7. To Ensure the *Manufacturer* Takes Effect, Customize `OccConfig`
@@ -133,7 +133,7 @@ http://localhost:4200/electronics-spa/en/USD/electronics/cameras/300938/HP/Photo
 
 <img src="../../media/routing/route-normalize-flow.png">
 
-### Step 1. Create the `ProductNameNormalizerService``
+### Step 1. Create the `ProductNameNormalizerService`
 
 ```sh
 ng generate service ProductNameNormalizer
@@ -209,7 +209,7 @@ http://localhost:4200/electronics-spa/en/USD/electronics/cameras/300938/HP/Photo
 
 Now, if you check the name of the product in *PDP*, it's also with dashes. To fix this we need to create a new Product interface with a new field
 
-<img src="../../product-name-pdp.png">
+<img src="../../media/routing/product-name-pdp.png">
 
 ## Creating a New Product Interface
 
@@ -254,7 +254,8 @@ paths: [
 ```
 
 > [!TIP]
-> If we want to change an alias that has multiple occurrences we can use `paramsMapping``
+> If we want to change an alias that has multiple occurrences we can use `paramsMapping`
+>
 > ```ts
 > ...
 > paths: [
@@ -269,7 +270,7 @@ paths: [
 
 Now you can see how the *URL* has the dashes, and the name of the product in *PDP* has spaces.
 
-> [!NOTE] Exercise 
+> [!NOTE] 
 > To be more *SEO* friendly try to make the name appears in lowercase in the url
 
 ## Creating a New normalizer for Categories
