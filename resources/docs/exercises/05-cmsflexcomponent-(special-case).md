@@ -86,6 +86,7 @@ export class ComponentFlexTestModule { }
 ```
 
 Result:
+
 <div align="center">
   <img src="../../media/exercise-5/5-2.png"  alt="Component result" width="400px" />
 </div>

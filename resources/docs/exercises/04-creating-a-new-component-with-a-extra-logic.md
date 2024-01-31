@@ -1,32 +1,32 @@
-# 3. Creating a new component with a extra logic
+# 3. Creating a New Component with Extra Logic
 
 Below you will see an example of a custom component with some added logic. You will start by generating the component and instantiating it.
 
-## 1. Creation of Component C
+## 1. Creating a New Service
 
 Follow this scheme:
 
 ```xml
-        <itemtype code="ComponentCComponent" extends="SimpleCmsComponent"
-                  jaloclass="de.hybris.platform.spartacussampledata.jalo.ComponentCComponent">
-            <attributes>
-                <attribute qualifier="title" type="localized:java.lang.String">
-                    <persistence type="property"/>
-                </attribute>
-                <attribute qualifier="fooCodes" type="java.lang.String">
-                    <persistence type="property">
-                        <columntype>
-                            <value>HYBRIS.LONG_STRING</value>
-                        </columntype>
-                    </persistence>
-                </attribute>
-            </attributes>
-        </itemtype>
+      <itemtype code="ComponentCComponent" extends="SimpleCmsComponent"
+                jaloclass="de.hybris.platform.spartacussampledata.jalo.ComponentCComponent">
+          <attributes>
+              <attribute qualifier="title" type="localized:java.lang.String">
+                  <persistence type="property"/>
+              </attribute>
+              <attribute qualifier="fooCodes" type="java.lang.String">
+                  <persistence type="property">
+                      <columntype>
+                          <value>HYBRIS.LONG_STRING</value>
+                      </columntype>
+                  </persistence>
+              </attribute>
+          </attributes>
+      </itemtype>
 ```
 
-It will be a very simple CMS component, with a title and a list of codes, which in this case will be represented as a text string. From Spartacus, you will take this list and make calls to an external API. Finally, you will display these results as cards.
+It will be a very simple CMS component, with a title and a list of codes, which in this case will be represented as a string. From Spartacus, you will take this list and make calls to an external API. Finally, you will display these results as cards.
 
-you can use the following impex:
+You can use the following impex:
 
 ```impex
 $version=staged
@@ -65,8 +65,8 @@ Recommended Exercises:
 
 Next, you will use the Angular CLI to generate a new service to communicate with the external API.
 
->[!Important]
->For this exercise, add the TypeScript-implemented library [pokenode-ts](https://github.com/Gabb-c/pokenode-ts) to your Spartacus project. This library is used to query the Pokémon data.
+> [!IMPORTANT]
+> For this exercise, add the TypeScript-implemented library [pokenode-ts](https://github.com/Gabb-c/pokenode-ts) to your Spartacus project. This library is used to query the Pokémon data.
 
 ```sh
 ng g s services/poke
@@ -98,7 +98,7 @@ export class PokeService {
 }
 ```
 
-## 3.Creating a Presenter component
+## 3.Creating a Presenter Component
 
 For design reasons, you will also include a Presenter (or Dummy component) to render the cards (you will use the Container Pattern).
 
@@ -109,6 +109,7 @@ ng g c pokemon --standalone
 ```
 
 `pokemon.component.ts`
+
 ```ts
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -126,7 +127,7 @@ export class PokemonComponent {
 
 ```
 
-Add to imports seccion into `component-c.module.ts`
+Add to the imports section in `component-c.module.ts`.
 
 ```ts
 import { NgModule } from '@angular/core';
