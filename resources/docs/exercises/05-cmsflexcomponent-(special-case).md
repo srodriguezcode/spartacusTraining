@@ -9,7 +9,10 @@ To translate this behavior to Spartacus, a new type of component has been create
 
 Here is an example of the process:
 
-Generate an instance of `CMSFlexComponent` and add it to a slot. In this case, the `flexType` is absolutely necessary (otherwise it would be impossible to map the component in Spartacus).
+Generate an instance of `CMSFlexComponent` and add it to a slot.
+
+> [!IMPORTANT] 
+> In this case, the `flexType` is absolutely necessary (otherwise it would be impossible to map the component in Spartacus).
 
 ```impex
 $version = Online  
@@ -48,13 +51,13 @@ Create a new `Component-Flex-test`, following the usual operations as already ex
 
 > [!NOTE]
 > Recommended Exercises:
-> - [Customizing an existing Spartacus Component](./resources/docs//exercises/01-customizing-an-existing-spartacus-component.md)
+> - [Customizing an existing Spartacus Component](./resources/docs/exercises/01-customizing-an-existing-spartacus-component.md)
 > - [Creating a new component](./resources/docs/exercises/02-creating-a-new-component.md)
 
 - Generate the component
 - Generate a module for the component and add it to the application
 
-You will neet to map it using the flexType instead of the typeCode:
+You will need to map it using the flexType instead of the typeCode:
 
 ```ts
 import { NgModule } from '@angular/core';

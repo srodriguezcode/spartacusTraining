@@ -52,7 +52,7 @@ Create a new `Component C`, following the usual operations as already explained 
 
 > [!NOTE]
 Recommended Exercises:
-> - [Customizing an existing Spartacus Component](./resources/docs//exercises/01-customizing-an-existing-spartacus-component.md)
+> - [Customizing an existing Spartacus Component](./resources/docs/exercises/01-customizing-an-existing-spartacus-component.md)
 > - [Creating a new component](./resources/docs/exercises/02-creating-a-new-component.md)
 > - [Creating a new Component with nested Components](./resources/docs/exercises/03-creating-a-new-component-with-nested-components.md)
 
