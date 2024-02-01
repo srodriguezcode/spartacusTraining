@@ -133,16 +133,16 @@ It should be noted that it is important to establish the order of the slots, sin
   <img src="../../media/exercise-7/7-3.png"  alt="Browser Network Console" width="500px" />
 </div>
 
-`Section1` with the ComponentCTest component is effectively being omitted.
+`Section1` with the `ComponentCTest` is effectively being omitted.
 `Section1` appears alone on extra large viewports(`xl`):
 
 <div align="center">
   <img src="../../media/exercise-7/7-4.png"  alt="Extra large viewport test page" width="600px" />
 </div>
 
-Be cautious with generic slot and breakpoint settings. A breakpoint setting always overrides a generic slot configuration. Additionally, settings for smaller breakpoints are inherited by larger breakpoints unless otherwise specified (similar to CSS media queries)
-
-For example, if you configure settings specifically for extra-small screens and also set a generic slot configuration, the generic configuration will not be displayed.
+> [!CAUTION]
+> A breakpoint setting always overrides a generic slot configuration. Additionally, settings for smaller breakpoints are inherited by larger breakpoints unless specified otherwise, similar to CSS media queries.
+> - For example, if you configure settings specifically for extra-small screens and set a generic slot configuration, the generic configuration will not be displayed.
 
 This configuration offers extensive flexibility, including the ability to reconfigure breakpoints, assign specific slots to the header or footer, and hide or display slots based on screen resolution. Additionally, it allows for the positioning of the `pageFold` and more.The options are huge and can be adjusted globally or for a specific template.
 
@@ -182,26 +182,26 @@ VariantConfigurationTemplate: {
 In this other example, you can see how the general footer is configured and then the slots for the Template:
 
 ```ts
-  layoutSlots: {
-	footer: {
-	  slots: DEFAULT_FOOTER_SLOT_CONFIG,
-	},
-	page_template_1: {
-	  slots: DEFAULT_SLOTS_CONFIG,
-	  md: {
-		slots: SLOT_CONFIG_FOR_MD,
-	  },
-	  footer: {
-		md: {
-		  slots: FOOTER_SLOT_CONFIG_FOR_MD,
-		},
-	  },
-	},
-	page_template_2: {
-	  fppter: {
-		slots: FOOTER_SLOTS_CONFIG_FOR_PAGE2,
-	  },
-	},
+layoutSlots: {
+footer: {
+  slots: DEFAULT_FOOTER_SLOT_CONFIG,
+},
+page_template_1: {
+  slots: DEFAULT_SLOTS_CONFIG,
+  md: {
+  slots: SLOT_CONFIG_FOR_MD,
   },
+  footer: {
+  md: {
+    slots: FOOTER_SLOT_CONFIG_FOR_MD,
+  },
+  },
+},
+page_template_2: {
+  fppter: {
+  slots: FOOTER_SLOTS_CONFIG_FOR_PAGE2,
+  },
+},
+},
 ```
 
