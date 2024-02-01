@@ -127,7 +127,7 @@ We will need an interface to decribe the data that we are going to receive from 
 ng g i component-a/Cms-component-a-component
 ```
 
-We will edit the `cms-component-a-component.ts` to look like this.
+We will edit the `cms-component-a-component.ts` to look like this:
 
 ```ts
 import { CmsComponent } from "@spartacus/core";
