@@ -53,7 +53,7 @@ This repository is dedicated to providing comprehensive training materials and r
 
 For this training it's necessary to have an Hybris backend with an accelerator running to support our Spartacus frontend. For the sake of simplicity you can find an already prepared project in the '*develop*' branch. We will setup that one first.
 
-1. Clone the repository and switch to the '*develop*' branch.
+1. Create a fork the repository and clone it. Then switch to the '*develop*' branch.
 2. Extract the appropriate hybris version (2205) in the root of the project. Merge files if required.
 3. Open your command prompt in the root folder and execute the `./setup_environment.sh` script. This will complete the setup for you. The process will take some time, so you can start building your Angular environment.
 4. Once finished start the application executing `./hybrisserver` in `hybris/bin/platform` folder. You can check if it's working properly accesing `http://localhost:9002`.

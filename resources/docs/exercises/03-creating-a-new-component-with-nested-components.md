@@ -1,6 +1,6 @@
 # 3. Creating a New Component with Nested Components
 
-## 1. Component Creation in Hybris
+## Component Creation in Hybris
 
 Generate a new component type in Hybris, and add it to the `-items.xml` file, e.g., `spartacussampledata-items.xml`.
 
@@ -69,8 +69,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 > <img src="../../media/exercise-3/3-1.png" alt="SmartEdit Banner" width="400px" />
 > </div>
 
-
-## 2. Component Creation in Spartacus
+## Component Creation in Spartacus
 
 You will need to create your component in Spartacus along with its respective module.
 
