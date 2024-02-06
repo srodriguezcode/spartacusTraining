@@ -92,9 +92,11 @@ export class ComponentAModule { }
 
 Now we should import the component module to the app. This can be done in two ways, either by directly adding it to the *Imports* section of `app.module`, or by using *lazy loading*.
 
->*By default, NgModules are eagerly loaded. This means that as soon as the application loads, so do all the NgModules, whether they are immediately necessary or not. For large applications with lots of routes, consider lazy loading —a design pattern that loads NgModules as needed. Lazy loading helps keep initial bundle sizes smaller, which in turn helps decrease load times.*
+> [!NOTE]
+> - By default, NgModules are eagerly loaded. This means that as soon as the application loads, all the NgModules are loaded, whether they are immediately necessary or not. For large applications with lots of routes, consider lazy loading — a design pattern that loads NgModules as needed. Lazy loading helps keep initial bundle sizes smaller, which in turn decreases load times.
 >
->You can learn more about lazy loading visiting the [official Angular documentation](https://angular.io/guide/lazy-loading-ngmodules).
+> - Learn more about lazy loading by visiting the [Official Angular documentation](https://angular.io/guide/lazy-loading-ngmodules).
+
 
 In this example we will apply the *lazy loading* approach in the appModule:
 
