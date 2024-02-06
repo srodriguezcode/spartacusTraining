@@ -30,7 +30,7 @@ This repository is dedicated to providing comprehensive training materials and r
 
 ### Versions
 
-- **Hybris version**: *2205*
+- **Hybris version**: *2211*
 
 - **Angular CLI**: *15.2.10*
   - **Minimum required version**: *15.2.4*
@@ -53,8 +53,8 @@ This repository is dedicated to providing comprehensive training materials and r
 
 For this training it's necessary to have an Hybris backend with an accelerator running to support our Spartacus frontend. For the sake of simplicity you can find an already prepared project in the '*develop*' branch. We will setup that one first.
 
-1. Create a fork the repository and clone it. Then switch to the '*develop*' branch.
-2. Extract the appropriate hybris version (2205) in the root of the project. Merge files if required.
+1. Fork the repository.
+2. Extract the appropriate hybris version (2211) in the root of the project. Merge files if required.
 3. Open your command prompt in the root folder and execute the `./setup_environment.sh` script. This will complete the setup for you. The process will take some time, so you can start building your Angular environment.
 4. Once finished start the application executing `./hybrisserver` in `hybris/bin/platform` folder. You can check if it's working properly accesing `http://localhost:9002`.
 
@@ -62,16 +62,16 @@ For this training it's necessary to have an Hybris backend with an accelerator r
 
 1. Open a new command prompt in the root of the project and create an Angular Application using the next command:
 
-    ```sh
-      ng new mystore --style=scss --routing=false
-    ```
+```sh
+ng new mystore --style=scss --routing=false
+```
 
 2. Build the Spartacus libraries using the open-source code on Github and add them to the application. For more information see [Building Spartacus libraries](./resources/docs/building-spartacus-libraries.md).
 3. Install the dependencies needed by your Composable Storefront app with the following command:
 
-    ```sh
-      npm install
-    ```
+```sh
+npm install
+```
 
 4. Open the file `src\app\spartacus\spartacus-configuration.module.ts`, and make sure it looks like this:
 
