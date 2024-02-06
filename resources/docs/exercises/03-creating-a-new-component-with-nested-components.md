@@ -330,3 +330,8 @@ Result:
 <div align="center">
   <img src="../../media/exercise-3/3-3.png" alt="Component result" width="400px" />
 </div>
+
+Congratulations! You have succesfully created your first component with nested components! You can keep learning with the next [exercise](./04-creating-a-new-component-with-a-extra-logic.md).
+
+If you encounter difficulties, feel free to compare your code with the provided [solution](https://github.com/ETuria-Labs/spartacus-training/compare/01-customizing-an-existing-spartacus-component...02-creating-a-new-component?expand=1).
+ (TODO FOOTER AND 04 FOOTER)

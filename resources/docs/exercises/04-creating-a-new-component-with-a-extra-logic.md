@@ -263,3 +263,7 @@ Result:
 <div align="center">
   <img src="../../media/exercise-4/4-1.png"  alt="Component result" width="400px" />
 </div>
+
+Congratulations! You have succesfully created your first component with extra logic! You can keep learning with the next [exercise](./05-cmsflexcomponent-(special-case).md).
+
+If you encounter difficulties, feel free to compare your code with the provided [solution](https://github.com/ETuria-Labs/spartacus-training/compare/03-creating-a-new-component-with-nested-components...04-creating-a-new-component-with-extra-logic?expand=1).
