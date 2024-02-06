@@ -80,6 +80,7 @@ For this training it's necessary to have an Hybris backend with an accelerator r
     import { translationChunksConfig, translations } from "@spartacus/assets";
     import { FeaturesConfig, I18nConfig, OccConfig, provideConfig, SiteContextConfig } from "@spartacus/core";
     import { defaultB2bOccConfig } from "@spartacus/setup";
+    import { SmartEditConfig } from '@spartacus/smartedit/root';
     import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacus/storefront";
 
     @NgModule({
@@ -105,6 +106,11 @@ For this training it's necessary to have an Hybris backend with an accelerator r
           chunks: translationChunksConfig,
           fallbackLang: 'en'
         },
+      }),provideConfig(<SmartEditConfig>{
+        smartEdit: {
+          storefrontPreviewRoute: 'cx-preview',
+          allowOrigin: 'localhost:9002',
+        },
       }), provideConfig(<FeaturesConfig>{
         features: {
           level: '6.5'
@@ -114,7 +120,9 @@ For this training it's necessary to have an Hybris backend with an accelerator r
     export class SpartacusConfigurationModule { }
 
     ```
-    
+
+    With this configuration, we have completed the setup of our Angular environment. Pay close attention to the OccConfig and SmartEdit config, as most common mistakes you might find in the future are related to these sections.
+
 5. Start your Angular frontend Application using `npm start`. You can check if it is working properly accesing `http://localhost:4200/electronics-spa/en/USD/`. Make sure your hybris backend application is running on the same time.
 
 ## Exercises
